@@ -45,8 +45,8 @@ public class AverageGridLayout extends ViewGroup {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         final int count = this.getChildCount();
         int xOffset=getLeftPaddingOffset(),yOffset=getTopPaddingOffset();
-        int unitW=(r-l-getPaddingLeft()-getPaddingRight())/3;
-        int unitH=(b-t-getPaddingTop()-getPaddingBottom())/3;
+        int unitW=(r-l-getPaddingLeft()-getPaddingRight())/mColumn;
+        int unitH=(b-t-getPaddingTop()-getPaddingBottom())/mRow;
         for (int i = 0; i < count; i++) {
             View child = this.getChildAt(i);
             final LayoutParams lp = (LayoutParams) child.getLayoutParams();
@@ -56,8 +56,17 @@ public class AverageGridLayout extends ViewGroup {
                 if(i!=0)
                     yOffset+=unitH;
             }
-            child.layout(xOffset+lp.leftMargin, yOffset+lp.topMargin, xOffset+unitW-lp.leftMargin, yOffset+unitH-lp.bottomMargin);
+            child.layout(xOffset + lp.leftMargin, yOffset + lp.topMargin, xOffset + unitW - lp.leftMargin, yOffset + unitH - lp.bottomMargin);
         }
+    }
+
+    public void setRowCount(int rowCount){
+        mRow=rowCount;
+        requestLayout();
+    }
+    public void setColumnCount(int columnCount){
+        mColumn=columnCount;
+        requestLayout();
     }
 
     @Override
