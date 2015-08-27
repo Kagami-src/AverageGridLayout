@@ -2,7 +2,45 @@
 a simple GridLayout for Android
 
 
-
+#### use layout xml
+```xml
+<com.kagami.averagegridlayout.AverageGridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00ff00"
+        android:id="@+id/view">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff0000"
+            android:layout_margin="6dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff0000"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#0000ff"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#0000ff"
+            />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                android:text="4 Column"/>
+        </FrameLayout>
+    </com.kagami.averagegridlayout.AverageGridLayout>
+```
 License
 -------
     The MIT License (MIT)
