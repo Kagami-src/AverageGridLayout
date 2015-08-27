@@ -1,6 +1,9 @@
 # AverageGridLayout
 a simple GridLayout for Android
 
+# screenshot
+
+![](https://raw.githubusercontent.com/Kagami-src/AverageGridLayout/master/screenshot/2015-08-27%2010.13.42.png)
 
 #### use layout xml
 ```xml
