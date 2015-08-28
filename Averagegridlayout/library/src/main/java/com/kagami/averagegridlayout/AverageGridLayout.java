@@ -47,16 +47,20 @@ public class AverageGridLayout extends ViewGroup {
         int xOffset=getLeftPaddingOffset(),yOffset=getTopPaddingOffset();
         int unitW=(r-l-getPaddingLeft()-getPaddingRight())/mColumn;
         int unitH=(b-t-getPaddingTop()-getPaddingBottom())/mRow;
-        for (int i = 0; i < count; i++) {
+
+        for (int i = 0,visibleCount=0; i < count; i++) {
             View child = this.getChildAt(i);
+            if(child.getVisibility()==View.GONE)
+                continue;
             final LayoutParams lp = (LayoutParams) child.getLayoutParams();
             xOffset+=unitW;
-            if(i%mColumn==0){
+            if(visibleCount%mColumn==0){
                 xOffset=getLeftPaddingOffset();
                 if(i!=0)
                     yOffset+=unitH;
             }
             child.layout(xOffset + lp.leftMargin, yOffset + lp.topMargin, xOffset + unitW - lp.leftMargin, yOffset + unitH - lp.bottomMargin);
+            visibleCount++;
         }
     }
 
